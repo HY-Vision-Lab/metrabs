@@ -14,16 +14,18 @@ import poseviz
 
 def main():
     parser = argparse.ArgumentParser(description="image")
-    parser.add_argument('--integer', type=int, help="camera id")
+    parser.add_argument('--cam', type=int, default=0, help="camera id")
+    parser.add_argument('--device', type=str, default='gpu', help="gpu/cpu")
     args = parser.parse_args()
 
     print(tf.config.list_physical_devices('GPU'))
-    with tf.device('/gpu:0'):
+    device_ = '/' + args.device + ':0'
+    with tf.device(device_):
         model = tf.saved_model.load(download_model('metrabs_mob3l_y4t'))
         skeleton = ''   # to show all-trained skeleton
         joint_names = model.per_skeleton_joint_names[skeleton].numpy().astype(str)
         joint_edges = model.per_skeleton_joint_edges[skeleton].numpy()
-        viz = poseviz.PoseViz(joint_names, joint_edges, snap_to_cam_on_scene_change=False, show_field_of_view=False, viz_fps=60)
+        viz = poseviz.PoseViz(joint_names, joint_edges, snap_to_cam_on_scene_change=False, show_field_of_view=False, viz_fps=30)
         fin = False
         for frame in frames_from_webcam(args):
             cam = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -50,7 +52,7 @@ def main():
 
 
 def frames_from_webcam(args):
-    cap = cv2.VideoCapture(args.integer)
+    cap = cv2.VideoCapture(args.cam)
 
     frame_bgr = cap.read()[1]
     while (frame_bgr) is not None:
