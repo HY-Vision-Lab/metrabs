@@ -2,6 +2,8 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+import argparse
+
 import cv2
 import tensorflow as tf
 import time
@@ -11,6 +13,10 @@ import numpy as np
 import poseviz
 
 def main():
+    parser = argparse.ArgumentParser(description="image")
+    parser.add_argument('--integer', type=int, help="camera id")
+    args = parser.parse_args()
+
     print(tf.config.list_physical_devices('GPU'))
     with tf.device('/gpu:0'):
         model = tf.saved_model.load(download_model('metrabs_mob3l_y4t'))
@@ -18,25 +24,33 @@ def main():
         joint_names = model.per_skeleton_joint_names[skeleton].numpy().astype(str)
         joint_edges = model.per_skeleton_joint_edges[skeleton].numpy()
         viz = poseviz.PoseViz(joint_names, joint_edges, snap_to_cam_on_scene_change=False, show_field_of_view=False, viz_fps=60)
-
-        for frame in frames_from_webcam():
+        fin = False
+        for frame in frames_from_webcam(args):
+            cam = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            if (fin):
+                cam = cv2.flip(cam, 1)
+                frame = np.fliplr(frame)
 
             pred = model.detect_poses(
                 frame, skeleton=skeleton, default_fov_degrees=55, detector_threshold=0.1, max_detections=1)
 
+
             camera = poseviz.Camera.from_fov(55, frame.shape[:2])
             viz.update(frame, pred['boxes'], pred['poses3d'], camera)
 
-            cv2.namedWindow('Realsense', cv2.WINDOW_AUTOSIZE)
-            cv2.imshow("Realsense", cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-            cv2.waitKey(1)
+            cv2.namedWindow('Video', cv2.WINDOW_AUTOSIZE)
 
+            cv2.imshow("Video", cam)
+
+            if(cv2.waitKey(1) & 0xFF) == ord('o'):
+                if fin == True: fin = False
+                else: fin = True
             if (cv2.waitKey(1) & 0xFF) == ord('q'):
                 break
 
 
-def frames_from_webcam():
-    cap = cv2.VideoCapture(2)
+def frames_from_webcam(args):
+    cap = cv2.VideoCapture(args.integer)
 
     frame_bgr = cap.read()[1]
     while (frame_bgr) is not None:

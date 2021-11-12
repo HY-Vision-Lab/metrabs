@@ -125,7 +125,7 @@
       <workItem from="1636661561401" duration="212000" />
       <workItem from="1636669296921" duration="1253000" />
       <workItem from="1636692372193" duration="7600000" />
-      <workItem from="1636708934602" duration="12000" />
+      <workItem from="1636708934602" duration="2670000" />
     </task>
     <servers />
   </component>
@@ -133,7 +133,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/metrabs$demo_webcam.coverage" NAME="demo_webcam Coverage Results" MODIFIED="1636708936540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/metrabs$demo_webcam.coverage" NAME="demo_webcam Coverage Results" MODIFIED="1636711102335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/metrabs$demo.coverage" NAME="demo Coverage Results" MODIFIED="1636016483950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
