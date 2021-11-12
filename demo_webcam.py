@@ -3,7 +3,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 import argparse
-
+import sys
 import cv2
 import tensorflow as tf
 import time
@@ -47,8 +47,9 @@ def main():
             if(cv2.waitKey(1) & 0xFF) == ord('o'):
                 if fin == True: fin = False
                 else: fin = True
-            if (cv2.waitKey(1) & 0xFF) == ord('q'):
-                break
+            elif (cv2.waitKey(1) & 0xFF) == ord('q'):
+                sys.exit(0)
+
 
 
 def frames_from_webcam(args):
@@ -58,6 +59,7 @@ def frames_from_webcam(args):
     while (frame_bgr) is not None:
         yield frame_bgr[..., ::-1]
         frame_bgr = cap.read()[1]
+
 
 
 def download_model(model_type):
