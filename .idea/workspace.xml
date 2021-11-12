@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad52f35d-d2e3-4491-a9f8-a50ad4844e8b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo_webcam.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo_webcam.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +123,9 @@
       <workItem from="1636606308380" duration="7659000" />
       <workItem from="1636621505655" duration="19191000" />
       <workItem from="1636661561401" duration="212000" />
-      <workItem from="1636669296921" duration="389000" />
+      <workItem from="1636669296921" duration="1253000" />
+      <workItem from="1636692372193" duration="7600000" />
+      <workItem from="1636708934602" duration="12000" />
     </task>
     <servers />
   </component>
@@ -130,7 +133,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/metrabs$demo_webcam.coverage" NAME="demo_webcam Coverage Results" MODIFIED="1636669320825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/metrabs$demo_webcam.coverage" NAME="demo_webcam Coverage Results" MODIFIED="1636708936540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/metrabs$demo.coverage" NAME="demo Coverage Results" MODIFIED="1636016483950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
